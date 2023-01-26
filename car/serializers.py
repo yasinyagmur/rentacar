@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Car,Reservation
 
-class CarSerializer(serializers.ModerlSerializer):
+class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
         fields = (
