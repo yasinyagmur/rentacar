@@ -30,8 +30,12 @@ class CarView(ModelViewSet):
                 Q(start_date__lt=end) & Q(end_date__gt=start)
             ).values_list('car_id', flat=True)  # [1, 2]
 
-            print(not_available)
-
             queryset = queryset.exclude(id__in=not_available)
 
         return queryset
+
+    # def get_serializer_class(self):
+    #     if self.request.user.is_staff:
+    #         return CarStaffSerializer
+    #     else:
+    #         CarSerizlizer
