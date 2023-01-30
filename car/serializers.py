@@ -3,6 +3,7 @@ from .models import Car, Reservation
 
 
 class CarSerializer(serializers.ModelSerializer):
+    is_available = serializers.BooleanField()
     class Meta:
         model = Car
         fields = (
@@ -13,7 +14,8 @@ class CarSerializer(serializers.ModelSerializer):
             'year',
             'gear',
             'rent_per_day',
-            'availability'
+            'availability',
+            'is_available'
         )
     # Bu method u override etmek yerine staff ve normal userlar için ayrı ayrı serializerlar oluşturulup
     # View de get_serializer_class methode u override edilerek user a göre serializerlar seçilebilir.
